@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Troubleshoot;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class TroubleshootController extends Controller
 {
@@ -15,8 +16,8 @@ class TroubleshootController extends Controller
     public function index()
     {
         //get troubleshoots
-        $troubleshoots = Troubleshoot::latest()->paginate(5);
-
+        $troubleshoots = Troubleshoot::paginate(8);
+        // dd($troubleshoots);
         //render view with posts
         return view('troubleshoots.index', compact('troubleshoots'));
     }
@@ -36,95 +37,140 @@ class TroubleshootController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $tro = new Trouble;
-        $tro->department = $request['department'];
-        $tro->trouble_type = $request['trouble_type'];
-        $tro->client_name = $request['client_name'];
-        $tro->trouble_name = $request['trouble_name'];
-        $troname = $request['trouble_name'];
-        $tro->trouble_req = $request['trouble_req'];
-        $tro->start = $request['start'];
-        $tro->finish = $request['finish'];
-        $tro->cause = $request['cause'];
-        $tro->solution = $request['solution'];
-        $tro->note = $request['note'];
-        $tro->status = $request['status'];
-
-        if ($request->hasFile('file_1')){
-            $file=$request->file('file_1');
-            $path='trouble/';
-            $name=$troname.'1'.time().'.'.$file->getClientOriginalExtension();
-            $file->move($path,$name);
-            $tro->file_1=$name;
-        }else{
-            $tro->file_1='nofile.png';
-        }
-
-        if ($request->hasFile('file_2')){
-            $file=$request->file('file_2');
-            $path2='trouble/';
-            $name2=$troname.'2'.time().'.'.$file->getClientOriginalExtension();
-            $file->move($path2,$name2);
-            $tro->file_2=$name2;
-        }else{
-            $tro->file_2='nofile.png';
-        }
 
 
-        if ($request->hasFile('file_3')){
-            $file=$request->file('file_3');
-            $path3='trouble/';
-            $name3=$troname.'3'.time().'.'.$file->getClientOriginalExtension();
-            $file->move($path3,$name3);
-            $tro->file_3=$name3;
-        }else{
-            $tro->file_3='nofile.png';
-        }
-
-        $status = $request['status'];
-
-        if ($status == "Done") {
-            $tro->reporter = Auth::user()->fullname;
-            $tro->problem_solver = Auth::user()->fullname;
-            $tro->save();
-            try{
-                Mail::send('email', ['nama' => $request->client_name,'dept' => $request->department, 'trouble_type' => $request->trouble_req, 'trouble_name'=>  $request->trouble_name, 'note'=>  $request->note, 'status'=>  $request->status], function ($message) use ($request)
-                {
-                    $message->subject($request->client_name);
-                    $message->from('mishbahul09munir@gmail.com', 'Troubleshot IT Desk');
-                    $pnerima = ['irvan@salokapark.com', 'munir@salokapark.com'];
-                    $message->to($pnerima);
-                });
-            }
-            catch (Exception $e){
-                return response (['status' => false,'errors' => $e->getMessage()]);
-            }
-            return redirect('/problem')->with('alert-success','Berhasil Kirim Email');
-
-        }
-        else
         {
-            $tro->reporter = Auth::user()->fullname;
-            $tro->problem_solver = "Not Yet";
-            $tro->save();
-            try{
-                Mail::send('email', ['nama' => $request->client_name,'dept' => $request->department, 'trouble_type' => $request->trouble_req, 'trouble_name'=>  $request->trouble_name, 'note'=>  $request->note,'status'=>  $request->status], function ($message) use ($request)
-                {
-                    $message->subject($request->client_name);
-                    $message->from('mishbahul09munir@gmail.com', 'Troubleshot IT Desk');
-                    $pnerima = ['irvan@salokapark.com', 'munir@salokapark.com'];
-                    $message->to($pnerima);
-                });
-            }
-            catch (Exception $e){
-                return response (['status' => false,'errors' => $e->getMessage()]);
-            }
-            return redirect('/')->with('alert-success','Berhasil Kirim Email');
+            $validatedData = $request->validate([
+                'trouble_req' => 'required|string|max:255',
+                'department' => 'required|string|max:255',
+                'trouble_type' => 'required|string|max:255',
+                'client_name' => 'required|string|max:255',
+                'trouble_name' => 'required|string',
+                'start' => 'required|date',
+                'finish' => '',
+                'cause' => 'required|string',
+                'solution' => 'required|string',
+                'note' => 'required|string',
+                'status' => 'required|string',
+                'file_1' =>'',
+                'file_2' =>'',
+                'file_3' =>'',
+            ]);
+
+            Troubleshoot::create($validatedData);
+                // 'trouble_req' => $request->trouble_req,
+                // 'department'     => $request->department,
+                // 'trouble_type'     => $request->trouble_type,
+                // 'client_name'   => $request->client_name,
+                // 'trouble_name' =>$request->trouble_name,
+                // 'start' =>$request->start,
+                // 'finish' =>$request->finish,
+                // 'cause'  =>$request->cause,
+                // 'solution' =>$request->solution,
+                // 'note' =>$request->note,
+                // 'status' =>$request->status,
+                // 'file_1'  =>$request->file_1,
+                // 'file_2'  =>$request->file_2,
+                // 'file_3'  =>$request->file_3,
+
+            //]);
+
+            Alert::success('Berhasil', "Trouble berhasil ditambahkan");
+
+            return redirect('/troubleshoot');
+
         }
 
 
-    }
+
+        // $tro = new Trouble;
+        // $tro->department = $request['department'];
+        // $tro->trouble_type = $request['trouble_type'];
+        // $tro->client_name = $request['client_name'];
+        // $tro->trouble_name = $request['trouble_name'];
+        // $troname = $request['trouble_name'];
+        // $tro->trouble_req = $request['trouble_req'];
+        // $tro->start = $request['start'];
+        // $tro->finish = $request['finish'];
+        // $tro->cause = $request['cause'];
+        // $tro->solution = $request['solution'];
+        // $tro->note = $request['note'];
+        // $tro->status = $request['status'];
+
+        // if ($request->hasFile('file_1')){
+        //     $file=$request->file('file_1');
+        //     $path='trouble/';
+        //     $name=$troname.'1'.time().'.'.$file->getClientOriginalExtension();
+        //     $file->move($path,$name);
+        //     $tro->file_1=$name;
+        // }else{
+        //     $tro->file_1='nofile.png';
+        // }
+
+        // if ($request->hasFile('file_2')){
+        //     $file=$request->file('file_2');
+        //     $path2='trouble/';
+        //     $name2=$troname.'2'.time().'.'.$file->getClientOriginalExtension();
+        //     $file->move($path2,$name2);
+        //     $tro->file_2=$name2;
+        // }else{
+        //     $tro->file_2='nofile.png';
+        // }
+
+
+        // if ($request->hasFile('file_3')){
+        //     $file=$request->file('file_3');
+        //     $path3='trouble/';
+        //     $name3=$troname.'3'.time().'.'.$file->getClientOriginalExtension();
+        //     $file->move($path3,$name3);
+        //     $tro->file_3=$name3;
+        // }else{
+        //     $tro->file_3='nofile.png';
+        // }
+
+        // $status = $request['status'];
+
+        // if ($status == "Done") {
+        //     $tro->reporter = Auth::user()->fullname;
+        //     $tro->problem_solver = Auth::user()->fullname;
+        //     $tro->save();
+        //     try{
+        //         Mail::send('email', ['nama' => $request->client_name,'dept' => $request->department, 'trouble_type' => $request->trouble_req, 'trouble_name'=>  $request->trouble_name, 'note'=>  $request->note, 'status'=>  $request->status], function ($message) use ($request)
+        //         {
+        //             $message->subject($request->client_name);
+        //             $message->from('mishbahul09munir@gmail.com', 'Troubleshot IT Desk');
+        //             $pnerima = ['irvan@salokapark.com', 'munir@salokapark.com'];
+        //             $message->to($pnerima);
+        //         });
+        //     }
+        //     catch (Exception $e){
+        //         return response (['status' => false,'errors' => $e->getMessage()]);
+        //     }
+        //     return redirect('/problem')->with('alert-success','Berhasil Kirim Email');
+
+        // }
+        // else
+        // {
+        //     $tro->reporter = Auth::user()->fullname;
+        //     $tro->problem_solver = "Not Yet";
+        //     $tro->save();
+        //     try{
+        //         Mail::send('email', ['nama' => $request->client_name,'dept' => $request->department, 'trouble_type' => $request->trouble_req, 'trouble_name'=>  $request->trouble_name, 'note'=>  $request->note,'status'=>  $request->status], function ($message) use ($request)
+        //         {
+        //             $message->subject($request->client_name);
+        //             $message->from('mishbahul09munir@gmail.com', 'Troubleshot IT Desk');
+        //             $pnerima = ['irvan@salokapark.com', 'munir@salokapark.com'];
+        //             $message->to($pnerima);
+        //         });
+        //     }
+        //     catch (Exception $e){
+        //         return response (['status' => false,'errors' => $e->getMessage()]);
+        //     }
+        //     return redirect('/')->with('alert-success','Berhasil Kirim Email');
+        // }
+
+
+
 
     /**
      * Display the specified resource.
@@ -134,8 +180,8 @@ class TroubleshootController extends Controller
      */
     public function show($id)
     {
-        $tr = Trouble::where('id', $id)->first();
-        return view('itdesk.troubleshoot.detail', compact('tr'));
+        $troubleshoot = Troubleshoot::where('id', $id)->first();
+        return view('troubleshoots.show', compact('troubleshoot'));
     }
 
     /**
@@ -146,8 +192,8 @@ class TroubleshootController extends Controller
      */
     public function edit($id)
     {
-        $tr = Trouble::where('id', $id)->first();
-        return view('itdesk.troubleshoot.edit', compact('tr'));
+        $troubleshoot = Troubleshoot::where('id', $id)->first();
+        return view('troubleshoots.edit', compact('troubleshoot'));
     }
 
     /**
@@ -157,30 +203,54 @@ class TroubleshootController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Troubleshoot $troubleshoot)
     {
-        $tro = Trouble::where('id', $id)->first();
-        $tro->department = $request['department'];
-        $tro->trouble_type = $request['trouble_type'];
-        $tro->client_name = $request['client_name'];
-        $tro->trouble_name = $request['trouble_name'];
-        $troname = $request['trouble_name'];
-        $tro->trouble_req = $request['trouble_req'];
-        $tro->finish = $request['finish'];
-        $tro->cause = $request['cause'];
-        $tro->solution = $request['solution'];
-        $tro->note = $request['note'];
-        $tro->status = $request['status'];
+        $validatedData = $request->validate([
+            'trouble_req' => 'required|string|max:255',
+            'department' => 'required|string|max:255',
+            'trouble_type' => 'required|string|max:255',
+            'client_name' => 'required|string|max:255',
+            'trouble_name' => 'required|string',
+            'start' => 'required|date',
+            'finish' => '',
+            'cause' => 'required|string',
+            'solution' => 'required|string',
+            'note' => 'required|string',
+            'status' => 'required|string',
+            'file_1' =>'',
+            'file_2' =>'',
+            'file_3' =>'',
+        ]);
 
-        if ($request->hasFile('file_1')){
-            $file=$request->file('file_1');
-            $path='trouble/';
-            $name=$troname.'1'.time().'.'.$file->getClientOriginalExtension();
-            $file->move($path,$name);
-            $tro->file_1=$name;
-        } else{
-            $tro->file_1=$tro->file_1;
-        }
+
+        $troubleshoot->update($validatedData);
+        Alert::success('Berhasil', "Trouble berhasil diupdate");
+
+        return redirect('/troubleshoot');
+    }
+
+        // $tro = Trouble::where('id', $id)->first();
+        // $tro->department = $request['department'];
+        // $tro->trouble_type = $request['trouble_type'];
+        // $tro->client_name = $request['client_name'];
+        // $tro->trouble_name = $request['trouble_name'];
+        // $troname = $request['trouble_name'];
+        // $tro->trouble_req = $request['trouble_req'];
+        // $tro->finish = $request['finish'];
+        // $tro->cause = $request['cause'];
+        // $tro->solution = $request['solution'];
+        // $tro->note = $request['note'];
+        // $tro->status = $request['status'];
+
+        // if ($request->hasFile('file_1')){
+        //     $file=$request->file('file_1');
+        //     $path='trouble/';
+        //     $name=$troname.'1'.time().'.'.$file->getClientOriginalExtension();
+        //     $file->move($path,$name);
+        //     $tro->file_1=$name;
+        // } else{
+        //     $tro->file_1=$tro->file_1;
+        // }
 
 //         Potongan kode di atas digunakan untuk menangani file yang diunggah dari sebuah form di aplikasi Laravel.
 
@@ -196,67 +266,67 @@ class TroubleshootController extends Controller
 
 // Ini digunakan untuk mengupdate data file yang diupload dari form, jika tidak ada file yang diunggah maka file yang sebelumnya digunakan tetap digunakan.
 
-        if ($request->hasFile('file_2')){
-            $file=$request->file('file_2');
-            $path2='trouble/';
-            $name2=$troname.'2'.time().'.'.$file->getClientOriginalExtension();
-            $file->move($path2,$name2);
-            $tro->file_2=$name2;
-        } else{
-            $tro->file_2=$tro->file_2;
-        }
+    //     if ($request->hasFile('file_2')){
+    //         $file=$request->file('file_2');
+    //         $path2='trouble/';
+    //         $name2=$troname.'2'.time().'.'.$file->getClientOriginalExtension();
+    //         $file->move($path2,$name2);
+    //         $tro->file_2=$name2;
+    //     } else{
+    //         $tro->file_2=$tro->file_2;
+    //     }
 
 
-        if ($request->hasFile('file_3')){
-            $file=$request->file('file_3');
-            $path3='trouble/';
-            $name3=$troname.'3'.time().'.'.$file->getClientOriginalExtension();
-            $file->move($path3,$name3);
-            $tro->file_3=$name3;
-        } else{
-            $tro->file_3=$tro->file_3;
-        }
-        $status = $request['status'];
+    //     if ($request->hasFile('file_3')){
+    //         $file=$request->file('file_3');
+    //         $path3='trouble/';
+    //         $name3=$troname.'3'.time().'.'.$file->getClientOriginalExtension();
+    //         $file->move($path3,$name3);
+    //         $tro->file_3=$name3;
+    //     } else{
+    //         $tro->file_3=$tro->file_3;
+    //     }
+    //     $status = $request['status'];
 
-        if ($status == "Done") {
-            $tro->reporter = Auth::user()->fullname;
-            $tro->problem_solver = Auth::user()->fullname;
-            $tro->update();
-            try{
-                Mail::send('email', ['nama' => $request->client_name,'dept' => $request->department, 'trouble_type' => $request->trouble_req, 'trouble_name'=>  $request->trouble_name, 'note'=>  $request->note, 'status'=>  $request->status], function ($message) use ($request)
-                {
-                    $message->subject($request->client_name);
-                    $message->from('mishbahul09munir@gmail.com', 'Troubleshot IT Desk');
-                    $pnerima = ['irvan@salokapark.com', 'munir@salokapark.com'];
-                    $message->to($pnerima);
-                });
-            }
-            catch (Exception $e){
-                return response (['status' => false,'errors' => $e->getMessage()]);
-            }
-            return redirect('/problem')->with('alert-success','Berhasil Kirim Email');
+    //     if ($status == "Done") {
+    //         $tro->reporter = Auth::user()->fullname;
+    //         $tro->problem_solver = Auth::user()->fullname;
+    //         $tro->update();
+    //         try{
+    //             Mail::send('email', ['nama' => $request->client_name,'dept' => $request->department, 'trouble_type' => $request->trouble_req, 'trouble_name'=>  $request->trouble_name, 'note'=>  $request->note, 'status'=>  $request->status], function ($message) use ($request)
+    //             {
+    //                 $message->subject($request->client_name);
+    //                 $message->from('mishbahul09munir@gmail.com', 'Troubleshot IT Desk');
+    //                 $pnerima = ['irvan@salokapark.com', 'munir@salokapark.com'];
+    //                 $message->to($pnerima);
+    //             });
+    //         }
+    //         catch (Exception $e){
+    //             return response (['status' => false,'errors' => $e->getMessage()]);
+    //         }
+    //         return redirect('/problem')->with('alert-success','Berhasil Kirim Email');
 
-        }
-        else
-        {
-            $tro->reporter = Auth::user()->fullname;
-            $tro->problem_solver = "Not Yet";
-            $tro->update();
-            try{
-                Mail::send('email', ['nama' => $request->client_name,'dept' => $request->department, 'trouble_type' => $request->trouble_req, 'trouble_name'=>  $request->trouble_name, 'note'=>  $request->note, 'status'=>  $request->status], function ($message) use ($request)
-                {
-                    $message->subject($request->client_name);
-                    $message->from('mishbahul09munir@gmail.com', 'Troubleshot IT Desk');
-                    $pnerima = ['irvan@salokapark.com', 'munir@salokapark.com'];
-                    $message->to($pnerima);
-                });
-            }
-            catch (Exception $e){
-                return response (['status' => false,'errors' => $e->getMessage()]);
-            }
-            return redirect('/')->with('alert-success','Berhasil Kirim Email');
-        }
-    }
+    //     }
+    //     else
+    //     {
+    //         $tro->reporter = Auth::user()->fullname;
+    //         $tro->problem_solver = "Not Yet";
+    //         $tro->update();
+    //         try{
+    //             Mail::send('email', ['nama' => $request->client_name,'dept' => $request->department, 'trouble_type' => $request->trouble_req, 'trouble_name'=>  $request->trouble_name, 'note'=>  $request->note, 'status'=>  $request->status], function ($message) use ($request)
+    //             {
+    //                 $message->subject($request->client_name);
+    //                 $message->from('mishbahul09munir@gmail.com', 'Troubleshot IT Desk');
+    //                 $pnerima = ['irvan@salokapark.com', 'munir@salokapark.com'];
+    //                 $message->to($pnerima);
+    //             });
+    //         }
+    //         catch (Exception $e){
+    //             return response (['status' => false,'errors' => $e->getMessage()]);
+    //         }
+    //         return redirect('/')->with('alert-success','Berhasil Kirim Email');
+    //     }
+    // }
 
     // Potongan program di atas adalah sebuah fungsi "store" yang didefinisikan dalam sebuah controller di Laravel.
     // Fungsi ini digunakan untuk menyimpan data baru yang diterima dari form yang dikirimkan ke server.
@@ -284,9 +354,12 @@ class TroubleshootController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Troubleshoot $troubleshoot)
     {
-        //
+        $troubleshoot->delete();
+        Alert::success('Berhasil', "Data $troubleshoot->client_name berhasil dihapus");
+        //redirect to index
+        return redirect('/troubleshoot');
     }
 
 }

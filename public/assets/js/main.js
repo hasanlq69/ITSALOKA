@@ -23,6 +23,8 @@ window.addEventListener("click", function (e){
 var tbody = document.querySelector("tbody");
 var pageUl = document.querySelector(".pagination");
 var itemShow = document.querySelector("#itemperpage");
+
+
 var tr = tbody.querySelectorAll("tr");
 var emptyBox = [];
 var index = 1;
@@ -123,7 +125,7 @@ function pageMaker(index, item_per_page, activePage){
     const current_page =  emptyBox.slice((start - item_per_page), (end-item_per_page));
     tbody.innerHTML = "";
     for(let j=0; j<current_page.length; j++){
-        let item = current_page[j];					
+        let item = current_page[j];
         tbody.appendChild(item);
     }
     Array.from(activePage).forEach((e)=>{e.classList.remove("on");});

@@ -20,7 +20,7 @@
     <div class="sidebar close">
         <div class="logo-details">
             <div class="img-logo">
-                <img src="./assets/img/Loka 4.png" alt="">
+                <img src="{{ asset('/assets/img/loka4.png') }}" alt="">
             </div>
             <span class="logo_name">IT DEPT</span>
         </div>
@@ -43,8 +43,8 @@
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="./troubleshootList.html">Troubleshoot</a></li>
-                    <li><a href="./troubleshootList.html">Troubleshoot List</a></li>
+                    <li><a class="link_name" href="{{ route('troubleshoot.index')}}">Troubleshoot</a></li>
+                    <li><a href="{{ route('troubleshoot.index') }}">Troubleshoot List</a></li>
                     <li><a href="./troubleshootForm.html">New Troubleshoot</a></li>
                 </ul>
             </li>
@@ -139,32 +139,13 @@
             </li>
         </ul>
     </div>
-    <section class="home-section">
-        <!--Nav Bar Start-->
-        <div class="home-content">
-            <i class='bx bx-menu' ></i>
-            <div class="detail-profile">
-                <div class="profile-dropdown" onclick="toggle()">
-                    <img src="./assets/img/download.jpg" alt="">
-                    <span class="name-profile">Magang 2022</span>
-                    <i class='bx bxs-chevron-down' ></i>
-                </div>
-                <ul class="profil-menu">
-                    <li class="menu-profile">
-                        <a href="#">Account</a>
-                    </li>
-                    <li class="menu-profile">
-                        <a href="./login.html">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!--Nav Bar End-->
+
 
          <!-- Isi disini -->
         @yield('isi')
         <!-- isi disini end -->
 <!--Link JS Bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+@include('sweetalert::alert')
 </body>
 </html>

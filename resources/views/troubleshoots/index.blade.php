@@ -1,6 +1,27 @@
 @extends('layouts.main')
 @section('isi')
-<!--Troubleshoot Start-->
+
+    <section class="home-section">
+        <!--Nav Bar Start-->
+         <div class="home-content">
+            <i class='bx bx-menu' ></i>
+            <div class="detail-profile">
+             <div class="profile-dropdown" onclick="toggle()">
+                <img src="{{ asset('assets/img/download.jpg') }}" alt="">
+                <span class="name-profile">Magang 2022</span>
+                <i class='bx bxs-chevron-down' ></i>
+            </div>
+                <ul class="profil-menu">
+                    <li class="menu-profile">
+                      <a href="#">Account</a>
+                    </li>
+                 <li class="menu-profile">
+                    <a href="./login.html">Logout</a>
+                 </li>
+                 </ul>
+            </div>
+         </div>
+        <!--Troubleshoot Start-->
         <div class="content">
             <div class="text-heading">
                 <h1 class="text">Troubleshoot List</h1>
@@ -12,7 +33,7 @@
             <div class="controller-content">
                 <div class="items-controller">
                     <h5>Show</h5>
-                    <select name="item" id="itemperpage">
+                    <select name="item" id="">
                         <option value="04">04</option>
                         <option value="05">05</option>
                         <option value="08">08</option>
@@ -21,7 +42,7 @@
                     </select>
                     <h5>Per Page</h5>
                 </div>
-                <a href="#" class="add-content">
+                <a href="{{ route('troubleshoot.create') }}" class="add-content">
                     <i class='bx bx-add-to-queue'></i>
                     <span class="name-add">
                         Add  Troubleshoot
@@ -33,158 +54,43 @@
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Nama</th>
+                            <th>Nama Trouble</th>
                             <th>Client Name</th>
                             <th>Status</th>
-                            <th>Date</th>
+                            <th>Start Date</th>
+                            <th>Finish Date
                             <th>Setting</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Setiap disentuh layar mari (sleep)</td>
-                            <td>PC Jenju</td>
-                            <td>Done</td>
-                            <td>03/12/2022 to 03/12/2022</td>
+                        @foreach ($troubleshoots as $troubleshoot)
+                        <tr id="row-{{$troubleshoot->id}}">
+                            <th>{{ $loop->iteration }}</th>
+                            <td>{{ $troubleshoot->trouble_name }}</td>
+                            <td>{{ $troubleshoot->client_name }}</td>
+                            <td>{{ $troubleshoot->status }}</td>
+                            <td>{{ $troubleshoot->start}} </td>
+                            <td>{{ $troubleshoot->finish}}</td>
                             <td class="setting">
                                 <div class="set-seting">
-                                    <a href="#" class="set-view"><i class="fa-regular fa-eye"></i></a>
-                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="{{ route('troubleshoot.show', $troubleshoot->id)}}" class="set-view"><i class="fa-regular fa-eye"></i></a>
+                                    <a href="{{ route('troubleshoot.edit', $troubleshoot->id)}}" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <form action="{{ route('troubleshoot.destroy', $troubleshoot->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="set-trash"><i class="fa-solid fa-trash"></i></button>
+                                    </form>
+                                    {{-- <a href="{{ route('troubleshoot.destroy', $troubleshoot->id)}}" class="set-trash"><i class="fa-solid fa-trash"></i></a> --}}
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>Ticketing PC no 2</td>
-                            <td>PC Jenju</td>
-                            <td>Done</td>
-                            <td>03/12/2022 to 03/12/2022</td>
-                            <td class="setting">
-                                <div class="set-seting">
-                                    <a href="#" class="set-view"><i class="fa-regular fa-eye"></i></a>
-                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>Setiap disentuh layar mari (sleep)</td>
-                            <td>PC Jenju</td>
-                            <td>Done</td>
-                            <td>03/12/2022 to 03/12/2022</td>
-                            <td class="setting">
-                                <div class="set-seting">
-                                    <a href="#" class="set-view"><i class="fa-regular fa-eye"></i></a>
-                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td>Setiap disentuh layar mari (sleep)</td>
-                            <td>PC Jenju</td>
-                            <td>Done</td>
-                            <td>03/12/2022 to 03/12/2022</td>
-                            <td class="setting">
-                                <div class="set-seting">
-                                    <a href="#" class="set-view"><i class="fa-regular fa-eye"></i></a>
-                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>Setiap disentuh layar mari (sleep)</td>
-                            <td>PC Jenju</td>
-                            <td>Done</td>
-                            <td>03/12/2022 to 03/12/2022</td>
-                            <td class="setting">
-                                <div class="set-seting">
-                                    <a href="#" class="set-view"><i class="fa-regular fa-eye"></i></a>
-                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>6</th>
-                            <td>Setiap disentuh layar mari (sleep)</td>
-                            <td>PC Jenju</td>
-                            <td>Done</td>
-                            <td>03/12/2022 to 03/12/2022</td>
-                            <td class="setting">
-                                <div class="set-seting">
-                                    <a href="#" class="set-view"><i class="fa-regular fa-eye"></i></a>
-                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>7</th>
-                            <td>Setiap disentuh layar mari (sleep)</td>
-                            <td>PC Jenju</td>
-                            <td>Done</td>
-                            <td>03/12/2022 to 03/12/2022</td>
-                            <td class="setting">
-                                <div class="set-seting">
-                                    <a href="#" class="set-view"><i class="fa-regular fa-eye"></i></a>
-                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>8</th>
-                            <td>Setiap disentuh layar mari (sleep)</td>
-                            <td>PC Jenju</td>
-                            <td>Done</td>
-                            <td>03/12/2022 to 03/12/2022</td>
-                            <td class="setting">
-                                <div class="set-seting">
-                                    <a href="#" class="set-view"><i class="fa-regular fa-eye"></i></a>
-                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>9</th>
-                            <td>Setiap disentuh layar mari (sleep)</td>
-                            <td>PC Jenju</td>
-                            <td>Done</td>
-                            <td>03/12/2022 to 03/12/2022</td>
-                            <td class="setting">
-                                <div class="set-seting">
-                                    <a href="#" class="set-view"><i class="fa-regular fa-eye"></i></a>
-                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>10</th>
-                            <td>Setiap disentuh layar mari (sleep)</td>
-                            <td>PC Jenju</td>
-                            <td>Done</td>
-                            <td>03/12/2022 to 03/12/2022</td>
-                            <td class="setting">
-                                <div class="set-seting">
-                                    <a href="#" class="set-view"><i class="fa-regular fa-eye"></i></a>
-                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
+                        @endforeach
+
                     </tbody>
                 </table>
+                {{-- {{ $troubleshoots->links() }} --}}
             </div>
-            <!--Pagination Start-->
+            {{-- <!--Pagination Start-->
             <div class="pagination-content">
                 <ul class="pagination">
                     <li class="prev">
@@ -202,7 +108,7 @@
                     </li>
                 </ul>
             </div>
-            <!--Pagination End-->
+            <!--Pagination End--> --}}
         </div>
     </section>
 
