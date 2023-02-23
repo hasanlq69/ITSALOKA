@@ -105,7 +105,7 @@
                         <span class="list">Status</span>
                         <div class="list-content">
                             <span>{{$troubleshoot->status}}</span>
-                            <i class="fa-solid fa-chevron-down"></i>
+                            {{-- <i class="fa-solid fa-chevron-down"></i> --}}
                         </div>
                     </div>
                     <div class="btn-wrapper">

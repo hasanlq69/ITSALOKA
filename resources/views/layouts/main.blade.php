@@ -45,21 +45,21 @@
                 <ul class="sub-menu">
                     <li><a class="link_name" href="{{ route('troubleshoot.index')}}">Troubleshoot</a></li>
                     <li><a href="{{ route('troubleshoot.index') }}">Troubleshoot List</a></li>
-                    <li><a href="./troubleshootForm.html">New Troubleshoot</a></li>
+                    <li><a href="{{ route('troubleshoot.create')}}">New Troubleshoot</a></li>
                 </ul>
             </li>
             <li>
                 <div class="iocn-link">
-                    <a href="#">
+                    <a href="{{ route('maintenance.index')}}">
                         <i class='bx bxs-wrench'></i>
                         <span class="link_name">Maintenance</span>
                     </a>
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="./maintenanceList.html">Maintenance</a></li>
-                    <li><a href="./maintenanceList.html">Maintenance List</a></li>
-                    <li><a href="./newMaintenanceForm.html">New Maintenance</a></li>
+                    <li><a class="link_name" href="{{ route('maintenance.index')}}">Maintenance</a></li>
+                    <li><a href="{{ route('maintenance.index')}}">Maintenance List</a></li>
+                    <li><a href="{{ route('maintenance.create')}}">New Maintenance</a></li>
                 </ul>
             </li>
             <li>
