@@ -64,16 +64,16 @@
             </li>
             <li>
                 <div class="iocn-link">
-                    <a href="#">
+                    <a href="{{ route('project.index')}}">
                         <i class='bx bxs-bar-chart-square'></i>
                         <span class="link_name">Project</span>
                     </a>
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="./projectList.html">Project</a></li>
-                    <li><a href="./projectList.html">Project List</a></li>
-                    <li><a href="./newProject.html">New Project</a></li>
+                    <li><a class="link_name" href="{{ route('project.index')}}">Project</a></li>
+                    <li><a href="{{ route('project.index')}}">Project List</a></li>
+                    <li><a href="{{ route('project.create')}}">New Project</a></li>
                 </ul>
             </li>
             <li>
@@ -147,5 +147,12 @@
 <!--Link JS Bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 @include('sweetalert::alert')
+@if (Session::has('sweet_alert.alert'))
+    <script>
+        swal({!! Session::get('sweet_alert.alert') !!});
+    </script>
+
+    {{ Session::forget('sweet_alert.alert') }}    // This will forget the alert data after displaying it :)
+@endif
 </body>
 </html>

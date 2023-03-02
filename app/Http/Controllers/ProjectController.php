@@ -14,7 +14,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+       //get maintenances
+   $projects = Project::paginate(8);
+   return view('projects.index', compact('projects'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.create');
     }
 
     /**

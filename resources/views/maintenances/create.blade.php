@@ -69,7 +69,14 @@
 
                         <div class="setting-btn">
                             <button onclick="location.href={{ route('maintenance.index')}}" class="red">Cancel</button>
-                            <button  type="submit" onclick="togglePopup()" class="blue">Submit</button>
+                            <button  type="submit" onclick="togglePopup()" id="popup-1" class="blue">Submit</button>
+                            @if (Session::has('sweet_alert.alert'))
+                                <script>
+                                    swal({!! Session::get('sweet_alert.alert') !!});
+                                </script>
+
+                                {{ Session::forget('sweet_alert.alert') }}    // This will forget the alert data after displaying it :)
+                            @endif
                         </div>
                     </form>
                     </div>

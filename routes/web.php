@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\TroubleshootController;
+use App\Http\Controllers\ProjectController;
 
 
 /*
@@ -30,4 +31,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('troubleshoot', TroubleshootController::class);
 //route maintenance
 Route::resource('maintenance', MaintenanceController::class);
+//route project
+Route::resource('project', ProjectController::class);
 

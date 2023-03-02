@@ -19,8 +19,6 @@ class MaintenanceController extends Controller
 
    //get maintenances
    $maintenances = Maintenance::paginate(8);
-
-
    return view('maintenances.index', compact('maintenances'));
     }
       /**
@@ -53,7 +51,8 @@ class MaintenanceController extends Controller
 
             Alert::success('Berhasil', "Maintenance berhasil ditambahkan");
 
-            return redirect('/maintenance');
+            return redirect(
+                '/maintenance');
 
         }
 
