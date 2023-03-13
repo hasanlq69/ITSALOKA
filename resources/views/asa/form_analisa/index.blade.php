@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User List | IT Dept</title>
+    <title>ASA Form Analisa List | IT Dept</title>
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!--CSS Link-->
@@ -85,7 +85,7 @@
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="#">WO</a></li>
+                    <li><a class="link_name" href="./WO_InList.html">WO</a></li>
                     <li><a href="./WO_InList.html">WO In</a></li>
                     <li><a href="./WO_OutList.html">WO Out</a></li>
                 </ul>
@@ -164,7 +164,7 @@
         <!--Troubleshoot Start-->
         <div class="content">
             <div class="text-heading">
-                <h1 class="text">User List</h1>
+                <h1 class="text">Form Analisa List</h1>
                 <div class="search-box">
                     <input type="text" placeholder="Search">
                     <i class='bx bx-search' ></i>
@@ -182,10 +182,10 @@
                     </select>
                     <h5>Per Page</h5>
                 </div>
-                <a href="./newUser.html" class="add-content">
+                <a href="./AnalisaForm.html" class="add-content">
                     <i class='bx bx-add-to-queue'></i>
                     <span class="name-add">
-                        Add User
+                        Add Form Analisa
                     </span>
                 </a>
             </div>
@@ -194,129 +194,150 @@
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Full Name</th>
                             <th>Name</th>
-                            <th>Email</th>
+                            <th>Departement</th>
+                            <th>Sistem</th>
+                            <th>Date</th>
                             <th>Setting</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th>1</th>
-                            <td>Misbahul Munir</td>
-                            <td>Munir</td>
-                            <td>munir@salokapark.com</td>
+                            <td>Endah</td>
+                            <td>HRGA</td>
+                            <td>Procurement and Warehouse</td>
+                            <td>04/01/2022</td>
                             <td class="setting">
                                 <div class="set-seting">
-                                    <a href="./userForm.html" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="./analisaSistemList.html" class="set-view"><i class="fa-regular fa-eye"></i></a>
+                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
                                     <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <th>2</th>
-                            <td>Ikbal Y</td>
-                            <td>Ikbal</td>
-                            <td>ikbal@it.saloka</td>
+                            <td>Endah</td>
+                            <td>HRGA</td>
+                            <td>Procurement and Warehouse</td>
+                            <td>04/01/2022</td>
                             <td class="setting">
                                 <div class="set-seting">
-                                    <a href="./userForm.html" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="./analisaSistemList.html" class="set-view"><i class="fa-regular fa-eye"></i></a>
+                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
                                     <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <th>3</th>
-                            <td>Banu Susanto</td>
-                            <td>banu</td>
-                            <td>Banu@it.saloka</td>
+                            <td>Endah</td>
+                            <td>HRGA</td>
+                            <td>Procurement and Warehouse</td>
+                            <td>04/01/2022</td>
                             <td class="setting">
                                 <div class="set-seting">
-                                    <a href="./userForm.html" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="./analisaSistemList.html" class="set-view"><i class="fa-regular fa-eye"></i></a>
+                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
                                     <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <th>4</th>
-                            <td>Muh Khoirul Irvan</td>
-                            <td>Irvan</td>
-                            <td>irvan@salokapark.com</td>
+                            <td>Endah</td>
+                            <td>HRGA</td>
+                            <td>Procurement and Warehouse</td>
+                            <td>04/01/2022</td>
                             <td class="setting">
                                 <div class="set-seting">
-                                    <a href="./userForm.html" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="" class="set-view"><i class="fa-regular fa-eye"></i></a>
+                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
                                     <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <th>5</th>
-                            <td>Reza Zhainal Abhidhin</td>
-                            <td>reza</td>
-                            <td>reza@it.saloka</td>
+                            <td>Endah</td>
+                            <td>HRGA</td>
+                            <td>Procurement and Warehouse</td>
+                            <td>04/01/2022</td>
                             <td class="setting">
                                 <div class="set-seting">
-                                    <a href="./userForm.html" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="" class="set-view"><i class="fa-regular fa-eye"></i></a>
+                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
                                     <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <th>6</th>
-                            <td>Jody Setiawan</td>
-                            <td>Jody</td>
-                            <td>jody.setiawan@salokapark.com</td>
+                            <td>Endah</td>
+                            <td>HRGA</td>
+                            <td>Procurement and Warehouse</td>
+                            <td>04/01/2022</td>
                             <td class="setting">
                                 <div class="set-seting">
-                                    <a href="./userForm.html" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="" class="set-view"><i class="fa-regular fa-eye"></i></a>
+                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
                                     <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <th>7</th>
-                            <td>Apps and System Divition</td>
-                            <td>App Div</td>
-                            <td>appdiv@salokapark.com</td>
+                            <td>Endah</td>
+                            <td>HRGA</td>
+                            <td>Procurement and Warehouse</td>
+                            <td>04/01/2022</td>
                             <td class="setting">
                                 <div class="set-seting">
-                                    <a href="./userForm.html" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="" class="set-view"><i class="fa-regular fa-eye"></i></a>
+                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
                                     <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <th>8</th>
-                            <td>Wiratmoko</td>
-                            <td>wiratmoko</td>
-                            <td>wiratmoko@salokapark.com</td>
+                            <td>Endah</td>
+                            <td>HRGA</td>
+                            <td>Procurement and Warehouse</td>
+                            <td>04/01/2022</td>
                             <td class="setting">
                                 <div class="set-seting">
-                                    <a href="./userForm.html" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="" class="set-view"><i class="fa-regular fa-eye"></i></a>
+                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
                                     <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <th>9</th>
-                            <td>Desi Ramadina</td>
-                            <td>Desi</td>
-                            <td>desi.ramadina@salokapark.com</td>
+                            <td>Endah</td>
+                            <td>HRGA</td>
+                            <td>Procurement and Warehouse</td>
+                            <td>04/01/2022</td>
                             <td class="setting">
                                 <div class="set-seting">
-                                    <a href="./userForm.html" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="" class="set-view"><i class="fa-regular fa-eye"></i></a>
+                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
                                     <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <th>10</th>
-                            <td>2022</td>
-                            <td>Magang</td>
-                            <td>magang@salokapark.com</td>
+                            <td>Endah</td>
+                            <td>HRGA</td>
+                            <td>Procurement and Warehouse</td>
+                            <td>04/01/2022</td>
                             <td class="setting">
                                 <div class="set-seting">
-                                    <a href="./userForm.html" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="" class="set-view"><i class="fa-regular fa-eye"></i></a>
+                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
                                     <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </td>

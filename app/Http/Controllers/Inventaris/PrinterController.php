@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Inventaris;
 
-use App\Models\Inventaris;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class InventarisController extends Controller
+class PrinterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,9 @@ class InventarisController extends Controller
      */
     public function index()
     {
-        //
+         //get inventaris Printer
+
+         return view('inventaris.printer.index');
     }
 
     /**
@@ -41,10 +43,10 @@ class InventarisController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Inventaris  $inventaris
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Inventaris $inventaris)
+    public function show($id)
     {
         //
     }
@@ -52,10 +54,10 @@ class InventarisController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Inventaris  $inventaris
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Inventaris $inventaris)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +66,10 @@ class InventarisController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Inventaris  $inventaris
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inventaris $inventaris)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +77,10 @@ class InventarisController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Inventaris  $inventaris
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Inventaris $inventaris)
+    public function destroy($id)
     {
         //
     }

@@ -178,19 +178,19 @@
                         <form action="#">
                             <div class="list-detail">
                                 <label for="" class="name-content">Name</label>
-                                <input placeholder="Name of User" type="text" class="text-content" value="Magang">
+                                <input placeholder="Name of User" type="text" class="text-content">
                             </div>
                             <div class="list-detail">
                                 <label for="" class="name-content">Full Name</label>
-                                <input placeholder="Full Name of User" type="text" class="text-content" value="2022">
+                                <input placeholder="Full Name of User" type="text" class="text-content">
                             </div>
                             <div class="list-detail">
                                 <label for="" class="name-content">Email</label>
-                                <input placeholder="Email of User" type="email" class="text-content" value="magang@salokapark.com" >
+                                <input placeholder="Email of User" type="email" class="text-content">
                             </div>
                             <div class="list-detail">
                                 <label for="" class="name-content">Password</label>
-                                <input placeholder="Password of User" type="password" class="text-content" value="magang2022" >
+                                <input placeholder="Password of User" type="password" class="text-content">
                             </div>
                             <div class="list-detail">
                                 <label for="" class="name-content">Level</label>
@@ -212,7 +212,6 @@
             </div>
             <!--Content Troubleshoot List End-->
         </div>
-
         <!--Pop UP Strat-->
         <div class="popup" id="popup-1">
             <div class="overlay">

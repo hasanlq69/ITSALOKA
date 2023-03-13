@@ -78,34 +78,34 @@
             </li>
             <li>
                 <div class="iocn-link">
-                    <a href="#">
+                    <a href="{{ route('woin.index')}}">
                         <i class='bx bxs-report' ></i>
                         <span class="link_name">WO</span>
                     </a>
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="./WO_InList.html">WO</a></li>
-                    <li><a href="./WO_InList.html">WO In</a></li>
-                    <li><a href="./WO_OutList.html">WO Out</a></li>
+                    <li><a class="link_name" href={{ route('woin.index')}}>WO</a></li>
+                    <li><a href={{ route('woin.index')}}>WO In</a></li>
+                    <li><a href={{ route('woout.index')}}>WO Out</a></li>
                 </ul>
             </li>
             <li>
                 <div class="iocn-link">
-                    <a href="#">
+                    <a href="{{ route('laptop.index')}}">
                         <i class='bx bx-server'></i>
                         <span class="link_name">Inventaris</span>
                     </a>
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Inventaris</a></li>
-                    <li><a href="./inventaris_LaptopList.html">Laptop</a></li>
-                    <li><a href="./inventaris_PCList.html">PC</a></li>
-                    <li><a href="./inventaris_PCPos.html">PC Pos</a></li>
-                    <li><a href="./inventarisMobileList.html">Mobile</a></li>
-                    <li><a href="./inventaris_PrinterList.html">Printer</a></li>
-                    <li><a href="./inventaris_OTGList.html">OTG</a></li>
+                    <li><a class="link_name" href="{{ route('laptop.index')}}">Inventaris</a></li>
+                    <li><a href="{{ route('laptop.index')}}">Laptop</a></li>
+                    <li><a href="{{ route('pc.index')}}">PC</a></li>
+                    <li><a href="{{ route('pcpos.index')}}">PC Pos</a></li>
+                    <li><a href="{{ route('mobile.index')}}">Mobile</a></li>
+                    <li><a href="{{ route('printer.index')}}">Printer</a></li>
+                    <li><a href="{{ route('otg.index')}}">OTG</a></li>
                 </ul>
             </li>
             <li>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Form | IT Dept</title>
+    <title>Form Improvment List | IT Dept</title>
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!--CSS Link-->
@@ -57,7 +57,7 @@
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Maintenance</a></li>
+                    <li><a class="link_name" href="./maintenanceList.html">Maintenance</a></li>
                     <li><a href="./maintenanceList.html">Maintenance List</a></li>
                     <li><a href="./newMaintenanceForm.html">New Maintenance</a></li>
                 </ul>
@@ -164,68 +164,123 @@
         <!--Troubleshoot Start-->
         <div class="content">
             <div class="text-heading">
-                <h1 class="text">User Form</h1>
-                <div class="text-link">
-                    <a href="./userList.html">User List </a>
-                    <span>/</span>
-                    <a href="" class="text-active">User Form</a>
+                <h1 class="text">Form Improvement List</h1>
+                <div class="search-box">
+                    <input type="text" placeholder="Search">
+                    <i class='bx bx-search' ></i>
                 </div>
             </div>
-            <!--Content Troubleshoot List Start-->
-            <div class="content-list">
-                <div class="wrapper-input-box">
-                    <div class="input-box">
-                        <form action="#">
-                            <div class="list-detail">
-                                <label for="" class="name-content">Name</label>
-                                <input placeholder="Name of User" type="text" class="text-content" value="Magang">
-                            </div>
-                            <div class="list-detail">
-                                <label for="" class="name-content">Full Name</label>
-                                <input placeholder="Full Name of User" type="text" class="text-content" value="2022">
-                            </div>
-                            <div class="list-detail">
-                                <label for="" class="name-content">Email</label>
-                                <input placeholder="Email of User" type="email" class="text-content" value="magang@salokapark.com" >
-                            </div>
-                            <div class="list-detail">
-                                <label for="" class="name-content">Password</label>
-                                <input placeholder="Password of User" type="password" class="text-content" value="magang2022" >
-                            </div>
-                            <div class="list-detail">
-                                <label for="" class="name-content">Level</label>
-                                <div class="wrapper-form-select">
-                                    <select name="links" id="" class="form-select">
-                                        <option value="">Admin</option>
-                                        <option value="">Management</option>
-                                        <option value="">User</option>
-                                    </select>
+            <div class="controller-content">
+                <div class="items-controller">
+                    <h5>Show</h5>
+                    <select name="item" id="itemperpage">
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="08">08</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                    <h5>Per Page</h5>
+                </div>
+                <a href="./newImprovmentForm.html" class="add-content">
+                    <i class='bx bx-add-to-queue'></i>
+                    <span class="name-add">
+                        Add Form Improvement
+                    </span>
+                </a>
+            </div>
+            <div class="table-responsive table-content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Name</th>
+                            <th>Departement</th>
+                            <th>Sistem</th>
+                            <th>Date</th>
+                            <th>Setting</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <td>Endah</td>
+                            <td>HRGA</td>
+                            <td>Procurement and Warehouse</td>
+                            <td>04/01/2022</td>
+                            <td class="setting">
+                                <div class="set-seting">
+                                    <a href="./ImprovmentSistemList.html" class="set-view"><i class="fa-regular fa-eye"></i></a>
+                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
                                 </div>
-                            </div>
-                        </form>
-                        <div class="setting-btn">
-                            <button onclick="location.href='userList.html'" class="red">Cancel</button>
-                            <button onclick="togglePopup()" class="blue">Submit</button>
-                        </div>
-                    </div>
-                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>Endah</td>
+                            <td>HRGA</td>
+                            <td>Procurement and Warehouse</td>
+                            <td>04/01/2022</td>
+                            <td class="setting">
+                                <div class="set-seting">
+                                    <a href="./ImprovmentSistemList.html" class="set-view"><i class="fa-regular fa-eye"></i></a>
+                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td>Endah</td>
+                            <td>HRGA</td>
+                            <td>Procurement and Warehouse</td>
+                            <td>04/01/2022</td>
+                            <td class="setting">
+                                <div class="set-seting">
+                                    <a href="./ImprovmentSistemList.html" class="set-view"><i class="fa-regular fa-eye"></i></a>
+                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>Endah</td>
+                            <td>HRGA</td>
+                            <td>Procurement and Warehouse</td>
+                            <td>04/01/2022</td>
+                            <td class="setting">
+                                <div class="set-seting">
+                                    <a href="./ImprovmentSistemList.html" class="set-view"><i class="fa-regular fa-eye"></i></a>
+                                    <a href="" class="set-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="" class="set-trash"><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <!--Content Troubleshoot List End-->
-        </div>
-
-        <!--Pop UP Strat-->
-        <div class="popup" id="popup-1">
-            <div class="overlay">
-                <div class="content">
-                    <div class="img-popup">
-                        <img src="./assets/img/undraw_done_re_oak4.svg" alt="">
-                    </div>
-                    <h1>Submit was Succesfull</h1>
-                    <p>Data  Berhasil ditambahkan!</p>
-                </div>
+            <!--Pagination Start-->
+            <div class="pagination-content">
+                <ul class="pagination">
+                    <li class="prev">
+                        <a href="#" id="prev" class="size-pagination">
+                            &#139;
+                        </a>
+                    </li>
+                    <!--<li class="list"><a href="#">01</a></li>-->
+                    <!--<li class="list"><a href="#">02</a></li>-->
+                    <!--<li class="list"><a href="#">03</a></li>-->
+                    <li class="next">
+                        <a href="#" id="next" class="size-pagination">
+                            &#155;
+                        </a>
+                    </li>
+                </ul>
             </div>
+            <!--Pagination End-->
         </div>
-        <!--Pop UP End-->
     </section>
     <!--Link JS Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

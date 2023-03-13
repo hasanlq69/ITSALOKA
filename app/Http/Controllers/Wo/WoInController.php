@@ -14,7 +14,10 @@ class WoInController extends Controller
      */
     public function index()
     {
-        //
+        //get wo in
+  // $projects = Project::paginate(8);
+   //return view('wo.in.index', compact('projects'));
+   return view('wo.in.index');
     }
 
     /**
