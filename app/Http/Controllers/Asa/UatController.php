@@ -14,7 +14,9 @@ class UatController extends Controller
      */
     public function index()
     {
-        //
+        //get asa uat
+
+        return view('asa.form_uat.index');
     }
 
     /**

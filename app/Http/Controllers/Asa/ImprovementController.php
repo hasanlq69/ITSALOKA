@@ -14,7 +14,9 @@ class ImprovementController extends Controller
      */
     public function index()
     {
-        //
+       //get asa improvement
+
+       return view('asa.form_improvement.index');
     }
 
     /**

@@ -14,7 +14,9 @@ class AnalisaController extends Controller
      */
     public function index()
     {
-        //
+         //get asa analisa
+
+         return view('asa.form_analisa.index');
     }
 
     /**

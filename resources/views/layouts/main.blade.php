@@ -117,10 +117,10 @@
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="{{ route('laptop.index')}}">Administrasi System dan Aplikasi</a></li>
-                    <li><a href="./asaAnalisaList.html">Form Analisa</a></li>
-                    <li><a href="./asaUATList.html">Form UAT</a></li>
-                    <li><a href="./asaImprovmentList.html">Form Improvement</a></li>
+                    <li><a class="link_name" href="{{ route('analisa.index')}}">Administrasi System dan Aplikasi</a></li>
+                    <li><a href="{{ route('analisa.index')}}">Form Analisa</a></li>
+                    <li><a href="{{ route('uat.index')}}">Form UAT</a></li>
+                    <li><a href="{{ route('improvement.index')}}">Form Improvement</a></li>
                 </ul>
             </li>
             <li>
@@ -132,15 +132,16 @@
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="#">User</a></li>
-                    <li><a href="./userList.html">User List</a></li>
-                    <li><a href="./newUser.html">New User</a></li>
+                    <li><a class="link_name" href="{{ route('user.index')}}">User</a></li>
+                    <li><a href="{{ route('user.index')}}">User List</a></li>
+                    <li><a href="{{ route('user.create')}}">New User</a></li>
                 </ul>
             </li>
         </ul>
     </div>
 
-
+        {{-- Navbar --}}
+        @include('layouts.navbar')
          <!-- Isi disini -->
         @yield('isi')
         <!-- isi disini end -->

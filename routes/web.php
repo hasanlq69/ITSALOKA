@@ -6,6 +6,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Asa\UatController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\Wo\WoInController;
@@ -77,5 +78,7 @@ Route::prefix('asa')->group(function () {
     Route::resource('improvement', ImprovementController::class);
 
 });
+//route user
+Route::resource('user', UserController::class);
 
 
