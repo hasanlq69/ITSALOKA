@@ -88,7 +88,7 @@
 
                     </tbody>
                 </table>
-                {{-- {{ $troubleshoots->links() }} --}}
+                {{ $troubleshoots->links() }}
             </div>
             {{-- <!--Pagination Start-->
             <div class="pagination-content">

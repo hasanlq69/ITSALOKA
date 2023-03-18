@@ -79,6 +79,11 @@
                             <div class="list-detail">
                                 <label for="" class="name-content">Cause</label>
                                 <input placeholder="Cause of trouble" type="text" class="text-content" name="cause">
+                                @error('cause')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="list-detail">
                                 <label for="" class="name-content">Time Allocation</label>

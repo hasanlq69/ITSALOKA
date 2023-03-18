@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Asa;
 
-use App\Models\Asa;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AsaController extends Controller
+class ImprovementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class AsaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Asa  $asa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Asa $asa)
+    public function show($id)
     {
         //
     }
@@ -52,10 +52,10 @@ class AsaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Asa  $asa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Asa $asa)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +64,10 @@ class AsaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Asa  $asa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Asa $asa)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +75,10 @@ class AsaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Asa  $asa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Asa $asa)
+    public function destroy($id)
     {
         //
     }

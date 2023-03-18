@@ -6,13 +6,16 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Asa\UatController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\Wo\WoInController;
 use App\Http\Controllers\Wo\WoOutController;
+use App\Http\Controllers\Asa\AnalisaController;
 use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\TroubleshootController;
 use App\Http\Controllers\Inventaris\PcController;
 use App\Http\Controllers\Inventaris\OtgController;
+use App\Http\Controllers\Asa\ImprovementController;
 use App\Http\Controllers\Inventaris\PcposController;
 use App\Http\Controllers\Inventaris\LaptopController;
 use App\Http\Controllers\Inventaris\MobileController;
@@ -64,20 +67,15 @@ Route::prefix('inventaris')->group(function () {
 
 
 });
-
-Route::prefix('inventaris')->group(function () {
-    // route laptop
-    Route::resource('laptop', LaptopController::class);
-    // route mobile
-    Route::resource('mobile', MobileController::class);
-    // route otg
-    Route::resource('otg', OtgController::class);
-    //route pc
-    Route::resource('pc', PcController::class);
-    //route pc pos
-    Route::resource('pcpos', PcposController::class);
-    //route printer
-    Route::resource('printer', PrinterController::class);
-
+//route Group Administrasi Sistem dan Aplikasi
+Route::prefix('asa')->group(function () {
+    // route analisa
+    Route::resource('analisa', AnalisaController::class);
+    // route uat
+    Route::resource('uat', UatController::class);
+    // route improvement
+    Route::resource('improvement', ImprovementController::class);
 
 });
+
+

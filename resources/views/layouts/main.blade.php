@@ -50,7 +50,7 @@
             </li>
             <li>
                 <div class="iocn-link">
-                    <a href="{{ route('maintenance.index')}}">
+                    <a href="#">
                         <i class='bx bxs-wrench'></i>
                         <span class="link_name">Maintenance</span>
                     </a>
@@ -64,7 +64,7 @@
             </li>
             <li>
                 <div class="iocn-link">
-                    <a href="{{ route('project.index')}}">
+                    <a href="#">
                         <i class='bx bxs-bar-chart-square'></i>
                         <span class="link_name">Project</span>
                     </a>
@@ -78,7 +78,7 @@
             </li>
             <li>
                 <div class="iocn-link">
-                    <a href="{{ route('woin.index')}}">
+                    <a href="#">
                         <i class='bx bxs-report' ></i>
                         <span class="link_name">WO</span>
                     </a>
@@ -92,7 +92,7 @@
             </li>
             <li>
                 <div class="iocn-link">
-                    <a href="{{ route('laptop.index')}}">
+                    <a href="#">
                         <i class='bx bx-server'></i>
                         <span class="link_name">Inventaris</span>
                     </a>
@@ -117,7 +117,7 @@
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Administrasi System dan Aplikasi</a></li>
+                    <li><a class="link_name" href="{{ route('laptop.index')}}">Administrasi System dan Aplikasi</a></li>
                     <li><a href="./asaAnalisaList.html">Form Analisa</a></li>
                     <li><a href="./asaUATList.html">Form UAT</a></li>
                     <li><a href="./asaImprovmentList.html">Form Improvement</a></li>

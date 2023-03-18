@@ -16,7 +16,7 @@ class TroubleshootController extends Controller
     public function index()
     {
         //get troubleshoots
-        $troubleshoots = Troubleshoot::paginate(8);
+        $troubleshoots = Troubleshoot::paginate(2);
         // dd($troubleshoots);
         //render view with posts
         return view('troubleshoots.index', compact('troubleshoots'));
